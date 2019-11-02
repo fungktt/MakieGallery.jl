@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Tutorial · Makie.jl</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">Makie.jl</span></div><form class="docs-search" action="search.html"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="index.html">Home</a></li><li><span class="tocitem">Basics</span><ul><li class="is-active"><a class="tocitem" href="basic-tutorials.html">Tutorial</a><ul class="internal"><li><a class="tocitem" href="#Getting-Makie-1"><span>Getting Makie</span></a></li><li><a class="tocitem" href="#Getting-the-latest-version-of-Makie-1"><span>Getting the latest version of Makie</span></a></li><li><a class="tocitem" href="#Set-the-Scene-1"><span>Set the <code>Scene</code></span></a></li><li><a class="tocitem" href="#Getting-help-1"><span>Getting help</span></a></li><li><a class="tocitem" href="#Basic-plotting-1"><span>Basic plotting</span></a></li><li><a class="tocitem" href="#Controlling-display-programmatically-1"><span>Controlling display programmatically</span></a></li><li><a class="tocitem" href="#Saving-plots-1"><span>Saving plots</span></a></li><li><a class="tocitem" href="#Animations-1"><span>Animations</span></a></li><li><a class="tocitem" href="#More-examples-1"><span>More examples</span></a></li></ul></li><li><a class="tocitem" href="statsmakie.html">StatsMakie Tutorial</a></li><li><a class="tocitem" href="animation.html">Animation</a></li><li><a class="tocitem" href="interaction.html">Interaction</a></li><li><a class="tocitem" href="functions-overview.html">Plotting functions overview</a></li><li><a class="tocitem" href="animation.html">Animation</a></li></ul></li><li><span class="tocitem">Documentation</span><ul><li><a class="tocitem" href="scenes.html">Scenes</a></li><li><a class="tocitem" href="signatures.html">Plot function signatures</a></li><li><a class="tocitem" href="plot-attributes.html">Plot attributes</a></li><li><a class="tocitem" href="colors.html">Colors</a></li><li><a class="tocitem" href="theming.html">Config file</a></li><li><a class="tocitem" href="cameras.html">Cameras</a></li><li><a class="tocitem" href="backends.html">Backends</a></li><li><a class="tocitem" href="axis.html">Axis</a></li><li><a class="tocitem" href="recipes.html">Plot Recipes</a></li><li><a class="tocitem" href="output.html">Output</a></li><li><a class="tocitem" href="troubleshooting.html">Troubleshooting</a></li></ul></li><li><span class="tocitem">Developer Documentation</span><ul><li><a class="tocitem" href="why-makie.html">Why <code>Makie</code>?</a></li><li><a class="tocitem" href="devdocs.html">Devdocs</a></li><li><a class="tocitem" href="gallery.html">MakieGallery</a></li><li><a class="tocitem" href="abstractplotting_api.html">AbstractPlotting Reference</a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Basics</a></li><li class="is-active"><a href="basic-tutorials.html">Tutorial</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href="basic-tutorials.html">Tutorial</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/JuliaPlots/MakieGallery.jl/blob/master/docs/src/basic-tutorials.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Tutorial-1">Tutorial<a class="docs-heading-anchor" href="#Tutorial-1" title="Permalink"></a></h1><p>Below is a quick tutorial to help get you started. Note that we assume you have <a href="https://julialang.org/">Julia</a> installed and configured already.</p><h2 id="Getting-Makie-1">Getting Makie<a class="docs-heading-anchor" href="#Getting-Makie-1" title="Permalink"></a></h2><p>Enter the package manager by typing <code>]</code> into the Repl. You should see <code>pkg&gt;</code>.</p><pre><code class="language-julia">add Makie</code></pre><h2 id="Getting-the-latest-version-of-Makie-1">Getting the latest version of Makie<a class="docs-heading-anchor" href="#Getting-the-latest-version-of-Makie-1" title="Permalink"></a></h2><p>Run the following commands in the package manager:</p><pre><code class="language-Julia">add Makie#master AbstractPlotting#master GLMakie#master
+test Makie</code></pre><p>The first use of Makie might take a little bit of time, due to precompilation.</p><h2 id="Set-the-Scene-1">Set the <code>Scene</code><a class="docs-heading-anchor" href="#Set-the-Scene-1" title="Permalink"></a></h2><p>The <code>Scene</code> object holds everything in a plot, and you can initialize it like so:</p><pre><code class="language-julia">scene = Scene()</code></pre><p>Note that before you put anything in the scene, it will be blank!</p><h2 id="Getting-help-1">Getting help<a class="docs-heading-anchor" href="#Getting-help-1" title="Permalink"></a></h2><p>The user-facing functions of Makie are pretty well documented, so you can usually use the help mode in the REPL, or your editor of choice. If you countinue to have issues, see <a href="index.html#Getting-Help-1">Getting Help</a>.</p><h2 id="Basic-plotting-1">Basic plotting<a class="docs-heading-anchor" href="#Basic-plotting-1" title="Permalink"></a></h2><p>Below are some examples of basic plots to help you get oriented.</p><p>You can put your mouse in the plot window and scroll to zoom. <strong>Right click and drag</strong> lets you pan around the scene, and <strong>left click and drag</strong> lets you do selection zoom (in 2D plots), or orbit around the scene (in 3D plots).</p><p>Many of these examples also work in 3D.</p><p>It is worth noting initally that if you run a Makie.jl example and nothing shows up, you likely need to do <code>display(scene)</code> to render the example on screen.</p><h3 id="Scatter-plot-1">Scatter plot<a class="docs-heading-anchor" href="#Scatter-plot-1" title="Permalink"></a></h3><pre><code class="language-julia">using Makie
+
+ x = rand(10)
+ y = rand(10)
+ colors = rand(10)
+ scene = scatter(x, y, color = colors)
+
+</code></pre><div style="display:inline-block">
+    <p style="display:inline-block; text-align: center">
+        <img src="http://simondanisch.github.io/ReferenceImages/gallery/tutorial_simple_scatter/media/image.jpg" alt="">
+
+    </p>
+</div>
+
+<pre><code class="language-julia">using Makie
+
+ x = 1:10
+ y = 1:10
+ sizevec = [s for s = 1:length(x)] ./ 10
+ scene = scatter(x, y, markersize = sizevec)
+
+</code></pre><div style="display:inline-block">
+    <p style="display:inline-block; text-align: center">
+        <img src="http://simondanisch.github.io/ReferenceImages/gallery/tutorial_markersize/media/image.jpg" alt="">
+
+    </p>
+</div>
+
+<h3 id="Line-plot-1">Line plot<a class="docs-heading-anchor" href="#Line-plot-1" title="Permalink"></a></h3><pre><code class="language-julia">using Makie
+
+ x = range(0, stop = 2pi, length = 40)
+ f(x) = sin.(x)
+ y = f(x)
+ scene = lines(x, y, color = :blue)
+
+</code></pre><div style="display:inline-block">
+    <p style="display:inline-block; text-align: center">
+        <img src="http://simondanisch.github.io/ReferenceImages/gallery/tutorial_simple_line/media/image.jpg" alt="">
+
+    </p>
+</div>
+
+<h3 id="Adding-a-title-1">Adding a title<a class="docs-heading-anchor" href="#Adding-a-title-1" title="Permalink"></a></h3><pre><code class="language-julia">using Makie
+
+ scene = lines(rand(10))
+
+ sc_t = title(scene, &quot;Random lines&quot;)
+
+ sc_t
+
+
+</code></pre><div style="display:inline-block">
+    <p style="display:inline-block; text-align: center">
+        <img src="http://simondanisch.github.io/ReferenceImages/gallery/tutorial_title/media/image.jpg" alt="">
+
+    </p>
+</div>
+
+<h3 id="Adding-to-a-scene-1">Adding to a scene<a class="docs-heading-anchor" href="#Adding-to-a-scene-1" title="Permalink"></a></h3><pre><code class="language-julia">using Makie
+
+ x = range(0, stop = 2pi, length = 80)
+ f1(x) = sin.(x)
+ f2(x) = exp.(-x) .* cos.(2pi*x)
+ y1 = f1(x)
+ y2 = f2(x)
+
+ scene = lines(x, y1, color = :blue)
+ scatter!(scene, x, y1, color = :red, markersize = 0.1)
+
+ lines!(scene, x, y2, color = :black)
+ scatter!(scene, x, y2, color = :green, marker = :utriangle, markersize = 0.1)
+
+</code></pre><div style="display:inline-block">
+    <p style="display:inline-block; text-align: center">
+        <img src="http://simondanisch.github.io/ReferenceImages/gallery/tutorial_adding_to_a_scene/media/image.jpg" alt="">
+
+    </p>
+</div>
+
+<h3 id="Removing-from-a-scene-1">Removing from a scene<a class="docs-heading-anchor" href="#Removing-from-a-scene-1" title="Permalink"></a></h3><pre><code class="language-julia">using Makie
+
+ x = range(0, stop = 2pi, length = 80)
+ f1(x) = sin.(x)
+ f2(x) = exp.(-x) .* cos.(2pi*x)
+ y1 = f1(x)
+ y2 = f2(x)
+
+ scene = lines(x, y1, color = :blue)
+ scatter!(scene, x, y1, color = :red, markersize = 0.1)
+
+ lines!(scene, x, y2, color = :black)
+ scatter!(scene, x, y2, color = :green, marker = :utriangle, markersize = 0.1)
+ # initialize the stepper and give it an output destination
+ st = Stepper(scene, &quot;tutorial_removing_from_a_scene&quot;)
+ step!(st)
+
+ pop!(scene.plots)
+ step!(st)
+
+ pop!(scene.plots)
+ step!(st)
+
+</code></pre><div style="display:inline-block">
+    <p style="display:inline-block; text-align: center">
+        <img src="http://simondanisch.github.io/ReferenceImages/gallery/tutorial_removing_from_a_scene/media/tutorial_removing_from_a_scene-1.jpg" alt="">
+
+    </p>
+</div>
+
+<div style="display:inline-block">
+    <p style="display:inline-block; text-align: center">
+        <img src="http://simondanisch.github.io/ReferenceImages/gallery/tutorial_removing_from_a_scene/media/tutorial_removing_from_a_scene-2.jpg" alt="">
+
+    </p>
+</div>
+
+<div style="display:inline-block">
+    <p style="display:inline-block; text-align: center">
+        <img src="http://simondanisch.github.io/ReferenceImages/gallery/tutorial_removing_from_a_scene/media/tutorial_removing_from_a_scene-3.jpg" alt="">
+
+    </p>
+</div>
+
+<h3 id="Adjusting-scene-limits-1">Adjusting scene limits<a class="docs-heading-anchor" href="#Adjusting-scene-limits-1" title="Permalink"></a></h3><pre><code class="language-julia">using Makie
+
+ x = range(0, stop = 10, length = 40)
+ y = x
+ #= specify the scene limits, note that the arguments for FRect are
+     x_min, y_min, x_dist, y_dist,
+     therefore, the maximum x and y limits are then x_min + x_dist and y_min + y_dist
+ =#
+ limits = FRect(-5, -10, 20, 30)
+
+ scene = lines(x, y, color = :blue, limits = limits)
+
+
+</code></pre><div style="display:inline-block">
+    <p style="display:inline-block; text-align: center">
+        <img src="http://simondanisch.github.io/ReferenceImages/gallery/tutorial_adjusting_scene_limits/media/image.jpg" alt="">
+
+    </p>
+</div>
+
+<p>You can also use the convenience functions <a href="abstractplotting_api.html#AbstractPlotting.xlims!-Tuple{Scene,Tuple{Real,Real}}"><code>xlims!</code></a>, <a href="abstractplotting_api.html#AbstractPlotting.ylims!-Tuple{Scene,Tuple{Real,Real}}"><code>ylims!</code></a> and <a href="abstractplotting_api.html#AbstractPlotting.zlims!-Tuple{Scene,Tuple{Real,Real}}"><code>zlims!</code></a>.</p><h3 id="Basic-theming-1">Basic theming<a class="docs-heading-anchor" href="#Basic-theming-1" title="Permalink"></a></h3><pre><code class="language-julia">using Makie
+
+ x = range(0, stop = 2pi, length = 40)
+ f(x) = cos.(x)
+ y = f(x)
+ scene = lines(x, y, color = :blue)
+
+ axis = scene[Axis] # get the axis object from the scene
+ axis.grid.linecolor = ((:red, 0.5), (:blue, 0.5))
+ axis.names.textcolor = ((:red, 1.0), (:blue, 1.0))
+ axis.names.axisnames = (&quot;x&quot;, &quot;y = cos(x)&quot;)
+ scene
+
+</code></pre><div style="display:inline-block">
+    <p style="display:inline-block; text-align: center">
+        <img src="http://simondanisch.github.io/ReferenceImages/gallery/tutorial_basic_theming/media/image.jpg" alt="">
+
+    </p>
+</div>
+
+<h3 id="Statistical-plotting-1">Statistical plotting<a class="docs-heading-anchor" href="#Statistical-plotting-1" title="Permalink"></a></h3><p><code>Makie</code> has a lot of support for statistical plots through <code>StatsMakie.jl</code>. See the <a href="statsmakie.html#StatsMakie-Tutorial-1">StatsMakie Tutorial</a> section for more information on this.</p><h2 id="Controlling-display-programmatically-1">Controlling display programmatically<a class="docs-heading-anchor" href="#Controlling-display-programmatically-1" title="Permalink"></a></h2><p><code>Scene</code>s will only display by default in global scope.  To make a Scene display when it&#39;s defined in a local scope, like a function or a module, you can call <code>display(scene)</code>, which will automatically display it in the best available display.   You can force display to the backend&#39;s preferred window by calling <code>display(AbstractPlotting.PlotDisplay(), scene)</code>.</p><h2 id="Saving-plots-1">Saving plots<a class="docs-heading-anchor" href="#Saving-plots-1" title="Permalink"></a></h2><p>See the <a href="output.html#Output-1">Output</a> section.</p><h2 id="Animations-1">Animations<a class="docs-heading-anchor" href="#Animations-1" title="Permalink"></a></h2><p>See the <a href="animation.html#Animation-1">Animation</a> section, as well as the <a href="interaction.html#Interaction-1">Interaction</a> section.</p><h2 id="More-examples-1">More examples<a class="docs-heading-anchor" href="#More-examples-1" title="Permalink"></a></h2><p>See the <a href="http://juliaplots.org/MakieReferenceImages/gallery/index.html">Example Gallery</a>.</p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="index.html">« Home</a><a class="docs-footer-nextpage" href="statsmakie.html">StatsMakie Tutorial »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Saturday 2 November 2019 01:40">Saturday 2 November 2019</span>. Using Julia version 1.2.0.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
