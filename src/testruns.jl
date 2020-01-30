@@ -1,20 +1,39 @@
 const makiegallery_dir = dirname(dirname(@__DIR__))
 
-using Base.Threads
-
-const current_ref_version = Ref{String}("v0.2.5")
+const current_ref_version = Ref{String}("v0.2.6")
+"""
+Returns the directory in which reference images are stored.
+"""
 function ref_image_dir(version = string(current_ref_version[]))
     return download_reference(version)
 end
+
 """
+    download_reference(version = string(current_ref_version[]))
+
 Downloads the reference images from ReferenceImages for a specific version
 """
 function download_reference(version = string(current_ref_version[]))
     refpath_version = version[1] == 'v' && version[2] in '0':'9' ? version[2:end] : version
+
+    # Resolve the specific commit, if a branch is given
+    if version[1] != "v"
+
+        lsr = readlines(`git ls-remote https://github.com/JuliaPlots/MakieReferenceImages`) .|> split .|> pairs
+
+        shas = getindex.(lsr, 1)
+        branchnames = getindex.(lsr, 2)
+
+        ind = findfirst(x -> occursin("refs/heads/$version", x), branchnames)
+
+        refpath_version = version = shas[ind]
+
+    end
+
     download_dir = joinpath(makiegallery_dir, "testimages")
     isdir(download_dir) || mkpath(download_dir)
-    tarfile = joinpath(download_dir, "gallery.zip")
-    url = "https://github.com/JuliaPlots/MakieReferenceImages/archive/$(version).tar.gz" # TODO FIXME
+    tarfile = joinpath(download_dir, "gallery.tar.gz")
+    url = "https://github.com/JuliaPlots/MakieReferenceImages/archive/$(version).tar.gz"
     refpath = joinpath(download_dir, "MakieReferenceImages-$(refpath_version)", "gallery")
     if !isdir(refpath) # if not yet downloaded
         download_images() = download(url, tarfile)
