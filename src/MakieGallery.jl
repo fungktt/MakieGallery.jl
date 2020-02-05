@@ -16,6 +16,7 @@ using FFMPEG
 using BinaryProvider
 using FixedPointNumbers, Colors, ColorTypes
 using SyntaxTree # for prettification of code, removing linenumbernodes
+using HTTP, JSON # to get the latest SHA of a branch of the refimages
 
 include("documenter_extension.jl")
 include("database.jl")
@@ -97,6 +98,6 @@ function MakieGallery.load_database(files::AbstractVector{<: AbstractString})
 end
 
 
-export load_database, eval_example, available_examples, run_example
+export load_database, eval_example, available_examples, run_example, load
 
 end # module

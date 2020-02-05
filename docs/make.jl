@@ -273,7 +273,10 @@ end
 makedocs(
     modules = [AbstractPlotting],
     doctest = false, clean = true,
-    format = Documenter.HTML(prettyurls = false),
+    format = Documenter.HTML(
+        prettyurls = false,
+        assets = ["assets/favicon.ico"],
+    ),
     sitename = "Makie.jl",
     expandfirst = [
         "basic-tutorials.md",
@@ -304,15 +307,16 @@ makedocs(
         ],
         "Documentation" => [
             "scenes.md",
+            "axis.md",
+            "convenience.md",
             "signatures.md",
             "plot-attributes.md",
             "colors.md",
             "theming.md",
             "cameras.md",
-            "backends.md",
-            "axis.md",
             "recipes.md",
             "output.md",
+            "backends.md",
             "troubleshooting.md"
         ],
         "Developer Documentation" => [
